@@ -15,7 +15,7 @@ public class MemberRepository {
     private static long sequence = 0L;
 
     //싱글톤으로 사용
-    private  static final MemberRepository instance = new MemberRepository();
+    private static final MemberRepository instance = new MemberRepository();
 
     public static MemberRepository getInstance() {
         return instance;
