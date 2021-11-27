@@ -26,6 +26,8 @@ import java.util.Map;
 @WebServlet(name = "frontControllerServletV5", urlPatterns = "/front-controller/v5/*")
 public class FrontControllerServletV5 extends HttpServlet {
 
+
+
     private final Map<String, Object> handlerMappingMap = new HashMap<>();
     private final List<MyHandlerAdapter> handlerAdapters = new ArrayList<>();
 
@@ -34,6 +36,7 @@ public class FrontControllerServletV5 extends HttpServlet {
 
         initHandlerAdapters();
     }
+
 
     private void initHandlerMappingMap() {
         handlerMappingMap.put("/front-controller/v5/v3/members/new-form", new MemberFormControllerV3());
@@ -47,8 +50,11 @@ public class FrontControllerServletV5 extends HttpServlet {
 
     private void initHandlerAdapters() {
         handlerAdapters.add(new ControllerV3HandlerAdapter());
-        handlerAdapters.add(new ControllerV4HandlerAdapter() );
+        handlerAdapters.add(new ControllerV4HandlerAdapter());
     }
+
+
+
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -87,5 +93,7 @@ public class FrontControllerServletV5 extends HttpServlet {
         System.out.println("/WEB-INF/views/" + viewName + ".jsp");
         return new MyView("/WEB-INF/views/" + viewName + ".jsp");
     }
+
+
 
 }
